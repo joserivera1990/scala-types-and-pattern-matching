@@ -8,6 +8,11 @@ object TestList {
 
   val char = 'i' :: chars
 
+  //val list = "APLICACIÓN 1" :: "APLICACIÓN 2"
+
+  List("1","2")
+
+  val d = List(1 until  102)
   chars.length
 
   chars.init
@@ -76,4 +81,19 @@ object TestList {
 
   numberslist.foldLeft(0)(_ + _)
 
+  var n = 10
+
+  for {
+    i <- 1 until n
+    j <- 1 until i
+  } yield (i, j)
+
+  for (i <- 1 until n; j <- 1 until i)
+    yield (i, j)
+
+  (1 until n).flatMap(i => (1 until i).map(j => (i, j)))
+
+  implicit val ordering = Ordering.fromLessThan[Int](_ > _)
+
+  List(2, 4, 3).sorted
 }
